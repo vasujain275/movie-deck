@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore trending and popular movies with our modern Movie Explorer Dashboard"
+    />
+    <title>Movie Explorer Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/style.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+      <main>
+        <!-- Hero Section -->
+        <div class="hero-section text-center py-4 mb-4">
+          <h1 class="display-4 fw-bold text-primary">
+            🎬 Movie Explorer Dashboard
+          </h1>
+          <p class="lead text-muted">
+            Discover trending movies, search by title, filter by genre, and
+            create your personal watch list
+          </p>
+        </div>
+
+        <!-- Movie Grid -->
+        <div id="movie-grid" class="row g-4">
+          <!-- Movies will be loaded here -->
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-4 mt-5">
+      <div class="container">
+        <p class="mb-0">
+          &copy; 2024 Movie Explorer Dashboard. Powered by
+          <a
+            href="https://www.themoviedb.org/"
+            target="_blank"
+            class="text-primary text-decoration-none"
+            >TMDB API</a
+          >
+        </p>
+        <small class="text-muted">Made with ❤️ for movie enthusiasts</small>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Application Scripts -->
+    <script type="module" src="src/js/script.js"></script>
+  </body>
+</html>
