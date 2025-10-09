@@ -54,7 +54,7 @@ const apiRequest = async (endpoint, options = {}) => {
  */
 const fetchTrendingMovies = async (timeWindow = "week") => {
   try {
-    const data = await apiRequest(`/3/trending/movie/${timeWindow}`);
+    const data = await apiRequest(`/trending/movie/${timeWindow}`);
     return data.results;
   } catch (error) {
     console.error("Error fetching trending movies:", error);
@@ -69,7 +69,7 @@ const fetchTrendingMovies = async (timeWindow = "week") => {
  */
 const fetchPopularMovies = async (page = 1) => {
   try {
-    const data = await apiRequest(`/3/movie/popular?page=${page}`);
+    const data = await apiRequest(`/movie/popular?page=${page}`);
     return data.results;
   } catch (error) {
     console.error("Error fetching popular movies:", error);
@@ -83,7 +83,7 @@ const fetchPopularMovies = async (page = 1) => {
  */
 const fetchGenres = async () => {
   try {
-    const data = await apiRequest("/3/genre/movie/list");
+    const data = await apiRequest("/genre/movie/list");
     return data.genres;
   } catch (error) {
     console.error("Error fetching genres:", error);
@@ -100,7 +100,7 @@ const fetchGenres = async () => {
 const searchMovies = async (query, page = 1) => {
   try {
     const data = await apiRequest(
-      `/3/search/movie?query=${encodeURIComponent(query)}&page=${page}`
+      `/search/movie?query=${encodeURIComponent(query)}&page=${page}`
     );
     return data.results;
   } catch (error) {
@@ -118,7 +118,7 @@ const searchMovies = async (query, page = 1) => {
 const fetchMoviesByGenre = async (genreId, page = 1) => {
   try {
     const data = await apiRequest(
-      `/3/discover/movie?with_genres=${genreId}&sort_by=popularity.desc&page=${page}`
+      `/discover/movie?with_genres=${genreId}&sort_by=popularity.desc&page=${page}`
     );
     return data.results;
   } catch (error) {
@@ -135,7 +135,7 @@ const fetchMoviesByGenre = async (genreId, page = 1) => {
 const fetchMovieDetails = async (movieId) => {
   try {
     const data = await apiRequest(
-      `/3/movie/${movieId}?append_to_response=credits,videos,reviews`
+      `/movie/${movieId}?append_to_response=credits,videos,reviews`
     );
     return data;
   } catch (error) {
@@ -151,7 +151,7 @@ const fetchMovieDetails = async (movieId) => {
  */
 const fetchNowPlayingMovies = async (page = 1) => {
   try {
-    const data = await apiRequest(`/3/movie/now_playing?page=${page}`);
+    const data = await apiRequest(`/movie/now_playing?page=${page}`);
     return data.results;
   } catch (error) {
     console.error("Error fetching now playing movies:", error);
@@ -166,7 +166,7 @@ const fetchNowPlayingMovies = async (page = 1) => {
  */
 const fetchTopRatedMovies = async (page = 1) => {
   try {
-    const data = await apiRequest(`/3/movie/top_rated?page=${page}`);
+    const data = await apiRequest(`/movie/top_rated?page=${page}`);
     return data.results;
   } catch (error) {
     console.error("Error fetching top rated movies:", error);

@@ -40,7 +40,7 @@ function setupNavbar(genres) {
  */
 function createNavbar(genres) {
   const navbar = document.createElement("nav");
-  navbar.className = "navbar navbar-expand-lg navbar-dark bg-dark mb-4";
+  navbar.className = "navbar navbar-expand-lg navbar-light bg-light mb-4";
 
   navbar.innerHTML = `
         <div class="container-fluid">
@@ -60,14 +60,14 @@ function createNavbar(genres) {
                                placeholder="Search movies..."
                                id="search-input"
                                autocomplete="off">
-                        <button class="btn btn-outline-light" type="submit">
+                        <button class="btn btn-outline-primary" type="submit">
                             🔍
                         </button>
                     </form>
                 </div>
 
                 <div class="navbar-nav ms-auto">
-                    <button class="btn btn-outline-light me-2" id="watch-later-toggle">
+                    <button class="btn btn-outline-primary me-2" id="watch-later-toggle">
                         📺 Watch Later
                     </button>
                 </div>
@@ -79,13 +79,13 @@ function createNavbar(genres) {
             <div class="row">
                 <div class="col-12">
                     <div class="genre-filters d-flex flex-wrap justify-content-center gap-2">
-                        <button class="btn btn-sm btn-secondary genre-btn active" data-genre-id="all">
+                        <button class="btn btn-sm btn-primary genre-btn active" data-genre-id="all">
                             All
                         </button>
                         ${genres
                           .map(
                             (genre) => `
-                            <button class="btn btn-sm btn-outline-secondary genre-btn" data-genre-id="${genre.id}">
+                            <button class="btn btn-sm btn-outline-primary genre-btn" data-genre-id="${genre.id}">
                                 ${genre.name}
                             </button>
                         `

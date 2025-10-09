@@ -25,25 +25,28 @@ function createMovieCard(movie) {
   );
 
   card.innerHTML = `
-        <div class="card h-100 movie-card">
+        <div class="card h-100 movie-card fade-in">
             <img src="${
               movie.poster_path
                 ? IMAGE_BASE_URL + movie.poster_path
-                : "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9Ijc1MCIgdmlld0JveD0iMCAwIDUwMCA3NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI3NTAiIGZpbGw9IiMzMzMzMzMiLz48cmVjdCB4PSIxNzUiIHk9IjMyNSIgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxMDAiIHJ4PSIxMCIgZmlsbD0iIzU1NTU1NSIvPjx0ZXh0IHg9IjI1MCIgeT0iMzgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5OTk5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiPk5vIEltYWdlPC90ZXh0Pjx0ZXh0IHg9IjI1MCIgeT0iNDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5OTk5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiPkF2YWlsYWJsZTwvdGV4dD48L3N2Zz4="
+                : "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9Ijc1MCIgdmlld0JveD0iMCAwIDUwMCA3NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI3NTAiIGZpbGw9IiNmOGY5ZmEiLz48cmVjdCB4PSIxNzUiIHk9IjMyNSIgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxMDAiIHJ4PSIxMCIgZmlsbD0iI2RlZTJlNiIvPjx0ZXh0IHg9IjI1MCIgeT0iMzgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNmM3NTdkIiBmb250LWZhbWlseT0iSW50ZXIsIEFyaWFsIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5ObyBJbWFnZTwvdGV4dD48dGV4dCB4PSIyNTAiIHk9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzZjNzU3ZCIgZm9udC1mYW1pbHk9IkludGVyLCBBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCI+QXZhaWxhYmxlPC90ZXh0Pjwvc3ZnPg=="
             }"
                  class="card-img-top movie-poster"
                  alt="${movie.title} Poster"
                  loading="lazy">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title movie-title">${movie.title}</h5>
-                <p class="card-text text-muted">${
+                <p class="card-text text-muted small mb-2">${
                   new Date(movie.release_date).getFullYear() || "N/A"
                 }</p>
-                <p class="card-text">
-                    <span class="rating">⭐ ${
+                <div class="d-flex align-items-center mb-3">
+                    <span class="rating me-2">⭐ ${
                       movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"
                     }</span>
-                </p>
+                    <small class="text-muted">(${
+                      movie.vote_count || 0
+                    } votes)</small>
+                </div>
                 <div class="mt-auto">
                     <button class="btn ${
                       isInWatchLater ? "btn-danger" : "btn-primary"
