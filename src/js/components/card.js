@@ -146,25 +146,47 @@ function renderMovieCards(movies, containerId = "movie-grid") {
 /**
  * Show notification to user
  * @param {string} message - Notification message
- * @param {string} type - Bootstrap alert type (success, danger, info, warning)
+ * @param {string} type - Notification type (success, danger, info, warning)
  */
 function showNotification(message, type = "info") {
+  // Remove any existing notifications
+  const existingNotifications = document.querySelectorAll(".notification");
+  existingNotifications.forEach((notification) => {
+    notification.classList.add("hide");
+    setTimeout(() => notification.remove(), 300);
+  });
+
   const notification = document.createElement("div");
-  notification.className = `alert alert-${type} alert-dismissible fade show notification`;
+  notification.className = `notification ${type}`;
+
+  // Create icon based on type
+  const icons = {
+    success: "✓",
+    danger: "✕",
+    info: "ℹ",
+    warning: "⚠",
+  };
+
   notification.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    `;
+    <div class="notification-content">
+      <span class="notification-icon">${icons[type] || icons.info}</span>
+      <span>${message}</span>
+    </div>
+    <button class="notification-close" onclick="this.parentElement.classList.add('hide'); setTimeout(() => this.parentElement.remove(), 300)">
+      ×
+    </button>
+  `;
 
   // Add to page
-  document.body.insertBefore(notification, document.body.firstChild);
+  document.body.appendChild(notification);
 
-  // Auto remove after 3 seconds
+  // Auto remove after 4 seconds
   setTimeout(() => {
     if (notification.parentNode) {
-      notification.remove();
+      notification.classList.add("hide");
+      setTimeout(() => notification.remove(), 300);
     }
-  }, 3000);
+  }, 4000);
 }
 
 export { createMovieCard, renderMovieCards, showNotification };
