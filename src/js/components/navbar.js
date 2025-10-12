@@ -22,30 +22,47 @@ let searchTimeout;
 function setupNavbar(genres) {
   currentGenres = genres;
   const navbarContainer = document.getElementById("navbar");
+  const genreFiltersContainer = document.getElementById(
+    "genre-filters-container"
+  );
 
   if (!navbarContainer) {
     console.error("Navbar container not found");
     return;
   }
 
+  if (!genreFiltersContainer) {
+    console.error("Genre filters container not found");
+    return;
+  }
+
   navbarContainer.innerHTML = "";
-  navbarContainer.appendChild(createNavbar(genres));
+  navbarContainer.appendChild(createNavbar());
+
+  genreFiltersContainer.innerHTML = "";
+  genreFiltersContainer.appendChild(createGenreFilters(genres));
+
   setupEventListeners();
 }
 
 /**
  * Create the navigation bar element
- * @param {Array} genres - Array of genre objects
  * @returns {HTMLElement} Navigation bar element
  */
-function createNavbar(genres) {
+function createNavbar() {
   const navbar = document.createElement("nav");
   navbar.className = "navbar navbar-expand-lg navbar-light bg-light mb-4";
 
   navbar.innerHTML = `
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#" id="home-link">
-                🎬 Movie Explorer
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#" id="home-link">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <circle cx="8" cy="10" r="2" fill="currentColor"/>
+                    <path d="M14 15l2-3 3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="2" y="19" width="20" height="2" fill="currentColor"/>
+                </svg>
+                MovieDeck
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -73,31 +90,42 @@ function createNavbar(genres) {
                 </div>
             </div>
         </div>
-
-        <!-- Genre Filter Row -->
-        <div class="container-fluid mt-2">
-            <div class="row">
-                <div class="col-12">
-                    <div class="genre-filters d-flex flex-wrap justify-content-center gap-2">
-                        <button class="btn btn-sm btn-primary genre-btn active" data-genre-id="all">
-                            All
-                        </button>
-                        ${genres
-                          .map(
-                            (genre) => `
-                            <button class="btn btn-sm btn-outline-primary genre-btn" data-genre-id="${genre.id}">
-                                ${genre.name}
-                            </button>
-                        `
-                          )
-                          .join("")}
-                    </div>
-                </div>
-            </div>
-        </div>
     `;
 
   return navbar;
+}
+
+/**
+ * Create the genre filters section
+ * @param {Array} genres - Array of genre objects
+ * @returns {HTMLElement} Genre filters container element
+ */
+function createGenreFilters(genres) {
+  const container = document.createElement("div");
+  container.className = "container-fluid";
+
+  container.innerHTML = `
+    <div class="row">
+      <div class="col-12">
+        <div class="genre-filters d-flex flex-wrap justify-content-center gap-2">
+          <button class="btn btn-sm btn-primary genre-btn active" data-genre-id="all">
+            All
+          </button>
+          ${genres
+            .map(
+              (genre) => `
+              <button class="btn btn-sm btn-outline-primary genre-btn" data-genre-id="${genre.id}">
+                ${genre.name}
+              </button>
+            `
+            )
+            .join("")}
+        </div>
+      </div>
+    </div>
+  `;
+
+  return container;
 }
 
 /**
