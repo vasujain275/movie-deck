@@ -1,6 +1,5 @@
-# 🎬 MovieDeck
-
 <div align="center">
+<h1> 🎬 MovieDeck</h1>
 
 ![MovieDeck](https://img.shields.io/badge/MovieDeck-Rose%20Pine-c4a7e7?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIgMTJMMTMgMjFMMjIgMTJMMTMgM0wyIDEyWiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=)
 ![Version](https://img.shields.io/badge/version-1.0.0-eb6f92?style=for-the-badge)
@@ -80,7 +79,7 @@ movie-deck/                          # Root directory of the Movie Explorer Dash
         ├── script.js             # Main application entry point and initialization logic
         ├── SPECIFICATION.md      # Technical specifications and implementation details for developers
         ## 🛠️ Tech Stack
-
+```
 <table>
 <tr>
 <td align="center"><strong>Frontend</strong></td>
