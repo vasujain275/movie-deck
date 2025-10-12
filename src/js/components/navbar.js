@@ -73,14 +73,14 @@ function createNavbar() {
                 <!-- Centered Search Section -->
                 <div class="d-flex justify-content-center flex-grow-1">
                     <form class="d-flex align-items-center search-form" role="search" id="search-form">
-                        <div class="input-group search-input-group">
-                            <input class="form-control search-input"
+                        <div class="input-group search-input-group rounded-pill shadow-sm">
+                            <input class="form-control search-input border-0"
                                    type="search"
                                    placeholder="Search movies..."
                                    id="search-input"
                                    autocomplete="off"
                                    aria-label="Search movies">
-                            <button class="btn btn-primary search-btn" type="submit" aria-label="Search">
+                            <button class="btn btn-primary search-btn border-0" type="submit" aria-label="Search">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
                                     <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -92,7 +92,7 @@ function createNavbar() {
 
                 <!-- Right Side Actions -->
                 <div class="navbar-nav">
-                    <button class="btn btn-outline-primary watch-later-btn" id="watch-later-toggle">
+                    <button class="btn btn-outline-primary watch-later-btn rounded-pill px-3" id="watch-later-toggle">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-1">
                             <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
                             <path d="M8 21h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -121,14 +121,14 @@ function createGenreFilters(genres) {
   container.innerHTML = `
     <div class="row">
       <div class="col-12">
-        <div class="genre-filters d-flex flex-wrap justify-content-center gap-2">
-          <button class="btn btn-sm btn-primary genre-btn active" data-genre-id="all">
+        <div class="genre-filters d-flex flex-wrap justify-content-center gap-2 p-4 bg-dark bg-opacity-10 rounded-4 mx-3 shadow-sm">
+          <button class="btn btn-sm btn-primary genre-btn active rounded-pill" data-genre-id="all">
             All
           </button>
           ${genres
             .map(
               (genre) => `
-              <button class="btn btn-sm btn-outline-primary genre-btn" data-genre-id="${genre.id}">
+              <button class="btn btn-sm btn-outline-primary genre-btn rounded-pill" data-genre-id="${genre.id}">
                 ${genre.name}
               </button>
             `

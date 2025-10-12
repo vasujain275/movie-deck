@@ -25,22 +25,24 @@ function createMovieCard(movie) {
   );
 
   card.innerHTML = `
-        <div class="card h-100 movie-card fade-in">
+        <div class="card h-100 movie-card fade-in shadow-sm rounded-4 border-0">
             <img src="${
               movie.poster_path
                 ? IMAGE_BASE_URL + movie.poster_path
                 : "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9Ijc1MCIgdmlld0JveD0iMCAwIDUwMCA3NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI3NTAiIGZpbGw9IiNmOGY5ZmEiLz48cmVjdCB4PSIxNzUiIHk9IjMyNSIgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxMDAiIHJ4PSIxMCIgZmlsbD0iI2RlZTJlNiIvPjx0ZXh0IHg9IjI1MCIgeT0iMzgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNmM3NTdkIiBmb250LWZhbWlseT0iSW50ZXIsIEFyaWFsIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNTAwIj5ObyBJbWFnZTwvdGV4dD48dGV4dCB4PSIyNTAiIHk9IjQwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzZjNzU3ZCIgZm9udC1mYW1pbHk9IkludGVyLCBBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjQwMCI+QXZhaWxhYmxlPC90ZXh0Pjwvc3ZnPg=="
             }"
-                 class="card-img-top movie-poster"
+                 class="card-img-top movie-poster rounded-top-4"
                  alt="${movie.title} Poster"
                  loading="lazy">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title movie-title">${movie.title}</h5>
+            <div class="card-body d-flex flex-column p-3">
+                <h5 class="card-title movie-title fw-semibold mb-2">${
+                  movie.title
+                }</h5>
                 <p class="card-text text-muted small mb-2">${
                   new Date(movie.release_date).getFullYear() || "N/A"
                 }</p>
                 <div class="d-flex align-items-center mb-3">
-                    <span class="rating me-2">⭐ ${
+                    <span class="rating me-2 text-warning fw-semibold">⭐ ${
                       movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"
                     }</span>
                     <small class="text-muted">(${
@@ -50,7 +52,7 @@ function createMovieCard(movie) {
                 <div class="mt-auto">
                     <button class="btn ${
                       isInWatchLater ? "btn-danger" : "btn-primary"
-                    } w-100 watch-later-btn"
+                    } w-100 watch-later-btn rounded-pill fw-semibold"
                             data-movie-id="${movie.id}">
                         ${
                           isInWatchLater
