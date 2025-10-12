@@ -135,24 +135,24 @@ function renderMovieDetails(movie) {
               ${
                 trailer
                   ? `
-                <button class="btn btn-primary btn-lg" onclick="window.open('https://www.youtube.com/watch?v=${trailer.key}', '_blank')">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="me-2">
+                <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center" onclick="window.open('https://www.youtube.com/watch?v=${trailer.key}', '_blank')">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="me-2 flex-shrink-0">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                  Watch Trailer
+                  <span>Watch Trailer</span>
                 </button>
               `
                   : ""
               }
-              <button class="btn btn-outline-primary" onclick="window.open('https://www.themoviedb.org/movie/${
+              <button class="btn btn-outline-primary d-flex align-items-center justify-content-center" onclick="window.open('https://www.themoviedb.org/movie/${
                 movie.id
               }', '_blank')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2 flex-shrink-0">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                   <polyline points="15,3 21,3 21,9"/>
                   <line x1="10" y1="14" x2="21" y2="3"/>
                 </svg>
-                View on TMDB
+                <span>View on TMDB</span>
               </button>
             </div>
           </div>
@@ -163,36 +163,48 @@ function renderMovieDetails(movie) {
           <!-- Quick Stats -->
           <div class="row g-3 mb-4">
             <div class="col-6 col-md-3">
-              <div class="card bg-primary bg-opacity-10 border-primary border-opacity-25 text-center">
-                <div class="card-body py-3">
-                  <div class="fs-4 fw-bold text-primary">${rating}</div>
-                  <small class="text-muted">⭐ Rating</small>
+              <div class="card bg-primary bg-opacity-10 border-primary border-opacity-25 text-center h-100">
+                <div class="card-body py-3 d-flex flex-column justify-content-center">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="fs-4 fw-bold text-primary me-1">${rating}</span>
+                    <span class="text-warning">⭐</span>
+                  </div>
+                  <small class="text-muted fw-medium">Rating</small>
                 </div>
               </div>
             </div>
             <div class="col-6 col-md-3">
-              <div class="card bg-secondary bg-opacity-10 border-secondary border-opacity-25 text-center">
-                <div class="card-body py-3">
-                  <div class="fs-5 fw-bold text-secondary">${releaseYear}</div>
-                  <small class="text-muted">📅 Year</small>
+              <div class="card bg-secondary bg-opacity-10 border-secondary border-opacity-25 text-center h-100">
+                <div class="card-body py-3 d-flex flex-column justify-content-center">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="fs-5 fw-bold text-secondary me-1">${releaseYear}</span>
+                    <span class="text-info">📅</span>
+                  </div>
+                  <small class="text-muted fw-medium">Year</small>
                 </div>
               </div>
             </div>
             <div class="col-6 col-md-3">
-              <div class="card bg-success bg-opacity-10 border-success border-opacity-25 text-center">
-                <div class="card-body py-3">
-                  <div class="fs-6 fw-bold text-success">${runtime}</div>
-                  <small class="text-muted">⏱️ Runtime</small>
+              <div class="card bg-success bg-opacity-10 border-success border-opacity-25 text-center h-100">
+                <div class="card-body py-3 d-flex flex-column justify-content-center">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="fs-6 fw-bold text-success me-1">${runtime}</span>
+                    <span class="text-secondary">⏱️</span>
+                  </div>
+                  <small class="text-muted fw-medium">Runtime</small>
                 </div>
               </div>
             </div>
             <div class="col-6 col-md-3">
-              <div class="card bg-warning bg-opacity-10 border-warning border-opacity-25 text-center">
-                <div class="card-body py-3">
-                  <div class="fs-6 fw-bold text-warning">${
-                    movie.vote_count || 0
-                  }</div>
-                  <small class="text-muted">👥 Votes</small>
+              <div class="card bg-warning bg-opacity-10 border-warning border-opacity-25 text-center h-100">
+                <div class="card-body py-3 d-flex flex-column justify-content-center">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="fs-6 fw-bold text-warning me-1">${
+                      movie.vote_count || 0
+                    }</span>
+                    <span class="text-primary">👥</span>
+                  </div>
+                  <small class="text-muted fw-medium">Votes</small>
                 </div>
               </div>
             </div>
@@ -223,7 +235,7 @@ function renderMovieDetails(movie) {
               ? `
             <div class="mb-4">
               <h6 class="text-muted mb-2 fw-semibold">Overview</h6>
-              <p class="text-light-emphasis lh-lg">${movie.overview}</p>
+              <p class="text-body lh-lg mb-0">${movie.overview}</p>
             </div>
           `
               : ""
@@ -231,20 +243,20 @@ function renderMovieDetails(movie) {
 
           <!-- Cast & Crew -->
           <div class="row mb-4">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3 mb-md-0">
               <h6 class="text-muted mb-2 fw-semibold">Director</h6>
-              <p class="mb-0 fw-medium">${director}</p>
+              <p class="mb-0 fw-medium text-body">${director}</p>
             </div>
             ${
               cast.length > 0
                 ? `
               <div class="col-md-6">
                 <h6 class="text-muted mb-2 fw-semibold">Cast</h6>
-                <div class="d-flex flex-wrap gap-1">
+                <div class="d-flex flex-wrap gap-2">
                   ${cast
                     .map(
                       (actor) =>
-                        `<span class="badge bg-secondary bg-opacity-20 text-secondary">${actor.name}</span>`
+                        `<span class="badge bg-secondary bg-opacity-20 text-secondary px-3 py-2">${actor.name}</span>`
                     )
                     .join("")}
                 </div>
@@ -268,8 +280,8 @@ function renderMovieDetails(movie) {
                   ${
                     movie.budget && movie.budget > 0
                       ? `
-                    <div class="col-sm-6">
-                      <strong class="text-muted">Budget:</strong>
+                    <div class="col-sm-6 mb-2">
+                      <strong class="text-muted d-block mb-1">Budget:</strong>
                       <div class="text-success fw-medium">$${movie.budget.toLocaleString()}</div>
                     </div>
                   `
@@ -279,8 +291,8 @@ function renderMovieDetails(movie) {
                   ${
                     movie.revenue && movie.revenue > 0
                       ? `
-                    <div class="col-sm-6">
-                      <strong class="text-muted">Revenue:</strong>
+                    <div class="col-sm-6 mb-2">
+                      <strong class="text-muted d-block mb-1">Revenue:</strong>
                       <div class="text-primary fw-medium">$${movie.revenue.toLocaleString()}</div>
                     </div>
                   `
@@ -292,8 +304,8 @@ function renderMovieDetails(movie) {
                     movie.production_companies.length > 0
                       ? `
                     <div class="col-12">
-                      <strong class="text-muted">Production Companies:</strong>
-                      <div class="mt-1">${movie.production_companies
+                      <strong class="text-muted d-block mb-1">Production Companies:</strong>
+                      <div class="text-body">${movie.production_companies
                         .map((company) => company.name)
                         .join(", ")}</div>
                     </div>
