@@ -78,8 +78,9 @@ movie-deck/                          # Root directory of the Movie Explorer Dash
         │   └── watchlist.js      # Watch later functionality component with local storage management
         ├── script.js             # Main application entry point and initialization logic
         ├── SPECIFICATION.md      # Technical specifications and implementation details for developers
-        ## 🛠️ Tech Stack
 ```
+
+## 🛠️ Tech Stack
 <table>
 <tr>
 <td align="center"><strong>Frontend</strong></td>
