@@ -51,7 +51,7 @@ function setupNavbar(genres) {
  */
 function createNavbar() {
   const navbar = document.createElement("nav");
-  navbar.className = "navbar navbar-expand-lg navbar-light bg-light mb-4";
+  navbar.className = "navbar navbar-expand-lg navbar-dark mb-4";
 
   navbar.innerHTML = `
         <div class="container-fluid px-3">
