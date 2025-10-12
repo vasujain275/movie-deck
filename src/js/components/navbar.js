@@ -54,7 +54,7 @@ function createNavbar() {
   navbar.className = "navbar navbar-expand-lg navbar-light bg-light mb-4";
 
   navbar.innerHTML = `
-        <div class="container-fluid">
+        <div class="container-fluid px-3">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="#" id="home-link">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
                     <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
@@ -65,27 +65,41 @@ function createNavbar() {
                 MovieDeck
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarContent">
-                <div class="mx-auto">
-                    <form class="d-flex" role="search" id="search-form">
-                        <input class="form-control me-2"
-                               type="search"
-                               placeholder="Search movies..."
-                               id="search-input"
-                               autocomplete="off">
-                        <button class="btn btn-outline-primary" type="submit">
-                            🔍
-                        </button>
+                <!-- Centered Search Section -->
+                <div class="d-flex justify-content-center flex-grow-1">
+                    <form class="d-flex align-items-center search-form" role="search" id="search-form">
+                        <div class="input-group search-input-group">
+                            <input class="form-control search-input"
+                                   type="search"
+                                   placeholder="Search movies..."
+                                   id="search-input"
+                                   autocomplete="off"
+                                   aria-label="Search movies">
+                            <button class="btn btn-primary search-btn" type="submit" aria-label="Search">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                    <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
                     </form>
                 </div>
 
-                <div class="navbar-nav ms-auto">
-                    <button class="btn btn-outline-primary me-2" id="watch-later-toggle">
-                        📺 Watch Later
+                <!-- Right Side Actions -->
+                <div class="navbar-nav">
+                    <button class="btn btn-outline-primary watch-later-btn" id="watch-later-toggle">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-1">
+                            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 21h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Watch Later
                     </button>
                 </div>
             </div>
