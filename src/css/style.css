@@ -1,32 +1,61 @@
 /**
- * MovieDeck Styles - Simplified with Bootstrap
- * Rosé Pine theme with minimal custom CSS
+ * MovieDeck Styles - Rose Pine Dark Theme
+ * Clean solid colors, no gradients
  */
 
-/* Essential Rosé Pine Color Variables */
+/* Rose Pine Dark Theme Variables */
 :root {
-    --bs-primary: #c4a7e7;        /* Purple */
-    --bs-secondary: #31748f;      /* Teal */
-    --bs-success: #9ccfd8;        /* Cyan */
-    --bs-danger: #eb6f92;         /* Pink */
-    --bs-warning: #f6c177;        /* Orange */
-    --bs-info: #c4a7e7;           /* Purple */
+    /* Rose Pine Dark Theme */
+    --background: #191724;
+    --foreground: #e0def4;
+    --card: #1f1d2e;
+    --card-foreground: #e0def4;
+    --popover: #1f1d2e;
+    --popover-foreground: #e0def4;
+    --primary: #eb6f92;
+    --primary-foreground: #191724;
+    --secondary: #9ccfd8;
+    --secondary-foreground: #191724;
+    --muted: #26233a;
+    --muted-foreground: #6e6a86;
+    --accent: #f6c177;
+    --accent-foreground: #191724;
+    --destructive: #eb6f92;
+    --border: #26233a;
+    --input: #26233a;
+    --ring: #eb6f92;
+    --chart-1: #eb6f92;
+    --chart-2: #9ccfd8;
+    --chart-3: #f6c177;
+    --chart-4: #31748f;
+    --chart-5: #c4a7e7;
+    --sidebar: #1f1d2e;
+    --sidebar-foreground: #e0def4;
+    --sidebar-primary: #eb6f92;
+    --sidebar-primary-foreground: #191724;
+    --sidebar-accent: #26233a;
+    --sidebar-accent-foreground: #e0def4;
+    --sidebar-border: #26233a;
+    --sidebar-ring: #eb6f92;
 
-    --bs-body-bg: #191724;        /* Dark background */
-    --bs-body-color: #e0def4;     /* Light text */
-    --bs-card-bg: #1f1d2e;        /* Card background */
-    --bs-border-color: #26233a;   /* Border color */
-
-    --hero-gradient: linear-gradient(135deg, #c4a7e7 0%, #31748f 100%);
-    --button-gradient: linear-gradient(135deg, #c4a7e7, #31748f);
-    --accent: #eb6f92;
+    /* Bootstrap overrides with Rose Pine colors */
+    --bs-primary: var(--primary);
+    --bs-secondary: var(--secondary);
+    --bs-success: var(--secondary);
+    --bs-danger: var(--destructive);
+    --bs-warning: var(--accent);
+    --bs-info: var(--chart-5);
+    --bs-body-bg: var(--background);
+    --bs-body-color: var(--foreground);
+    --bs-card-bg: var(--card);
+    --bs-border-color: var(--border);
 }
 
 /* Global Styles */
 body {
     font-family: 'Inter', 'Segoe UI', sans-serif;
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
+    background-color: var(--background);
+    color: var(--foreground);
 }
 
 /* Custom Scrollbar */
@@ -35,80 +64,48 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bs-card-bg);
+    background: var(--card);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--bs-border-color);
+    background: var(--muted);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--bs-primary);
+    background: var(--primary);
 }
 
-/* Hero Section - Custom Design */
+/* Hero Section - Clean solid design */
 .hero-section {
-    background: var(--hero-gradient);
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.1"/></svg>');
-    animation: float 20s infinite linear;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px) rotate(0deg); }
-    100% { transform: translateY(-100px) rotate(360deg); }
-}
-
-.hero-section h1 {
-    background: linear-gradient(45deg, #f2f0ff, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    z-index: 1;
-}
-
-.hero-section .lead {
-    position: relative;
-    z-index: 1;
+    background-color: var(--card);
+    color: var(--foreground);
+    border: 1px solid var(--border);
 }
 
 /* Navbar Customization */
 .navbar {
-    background: rgba(31, 29, 46, 0.95) !important;
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--bs-border-color);
+    background-color: var(--card) !important;
+    border-bottom: 1px solid var(--border);
 }
 
 .navbar-brand:hover {
-    color: var(--bs-primary) !important;
+    color: var(--primary) !important;
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
 
-/* Movie Card Hover Effects */
+/* Movie Card Styles */
 .movie-card {
-    background-color: var(--bs-card-bg);
-    border: 1px solid var(--bs-border-color);
+    background-color: var(--card);
+    border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
 
 .movie-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--bs-secondary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(235, 111, 146, 0.15);
+    border-color: var(--primary);
 }
 
 .movie-poster {
@@ -118,87 +115,106 @@ body {
 }
 
 .movie-card:hover .movie-poster {
-    filter: brightness(1.05) saturate(1.1);
+    filter: brightness(1.1);
 }
 
 /* Search Input Group */
 .search-input-group {
-    background: var(--bs-card-bg);
-    border: 1px solid var(--bs-border-color);
+    background: var(--input);
+    border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
 
 .search-input-group:focus-within {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transform: translateY(-1px);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(235, 111, 146, 0.2);
 }
 
 .search-input {
     background: transparent;
     border: none;
-    color: var(--bs-body-color);
+    color: var(--foreground);
 }
 
 .search-input:focus {
     background: transparent;
     border: none;
-    color: var(--bs-body-color);
+    color: var(--foreground);
     box-shadow: none;
 }
 
 .search-input::placeholder {
-    color: #6e6a86;
+    color: var(--muted-foreground);
 }
 
-/* Button Gradients */
+/* Solid Color Buttons */
 .btn-primary {
-    background: var(--button-gradient);
-    border: none;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--primary-foreground);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--accent), var(--bs-primary));
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-foreground);
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--primary-foreground);
     transform: translateY(-2px);
 }
 
 .btn-danger {
-    background: linear-gradient(135deg, var(--bs-danger), var(--accent));
-    border: none;
+    background-color: var(--destructive);
+    border-color: var(--destructive);
+    color: var(--primary-foreground);
 }
 
 .btn-danger:hover {
-    background: linear-gradient(135deg, var(--accent), var(--bs-danger));
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-foreground);
     transform: translateY(-2px);
 }
 
 /* Genre Filter Buttons */
 .genre-btn {
-    border: 2px solid var(--bs-border-color);
-    background: var(--bs-card-bg);
-    color: var(--bs-body-color);
+    border: 2px solid var(--border);
+    background-color: var(--card);
+    color: var(--foreground);
     transition: all 0.3s ease;
 }
 
 .genre-btn:hover {
-    background: var(--bs-secondary);
-    color: var(--bs-body-bg);
-    border-color: var(--bs-secondary);
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    border-color: var(--secondary);
     transform: translateY(-2px);
 }
 
 .genre-btn.active {
-    background: var(--bs-primary);
-    color: var(--bs-body-bg);
-    border-color: var(--bs-primary);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
 }
 
 /* Rating Badge */
 .rating {
-    color: #ebbcba;
+    color: var(--accent);
     font-weight: 600;
 }
 
-/* Notification Styles - Minimal Floating Toast */
+/* Notification Styles */
 .notification {
     position: fixed;
     top: 20px;
@@ -210,7 +226,7 @@ body {
     border-radius: 12px;
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(0);
     opacity: 1;
@@ -252,32 +268,32 @@ body {
 
 .notification-close:hover {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.1);
+    background-color: var(--muted);
 }
 
 /* Notification Types */
 .notification.success {
-    background: rgba(156, 207, 216, 0.15);
-    border-color: rgba(156, 207, 216, 0.3);
-    color: var(--bs-success);
+    background-color: var(--card);
+    border-color: var(--secondary);
+    color: var(--secondary);
 }
 
 .notification.danger {
-    background: rgba(235, 111, 146, 0.15);
-    border-color: rgba(235, 111, 146, 0.3);
-    color: var(--bs-danger);
+    background-color: var(--card);
+    border-color: var(--destructive);
+    color: var(--destructive);
 }
 
 .notification.info {
-    background: rgba(196, 167, 231, 0.15);
-    border-color: rgba(196, 167, 231, 0.3);
-    color: var(--bs-info);
+    background-color: var(--card);
+    border-color: var(--chart-5);
+    color: var(--chart-5);
 }
 
 .notification.warning {
-    background: rgba(246, 193, 119, 0.15);
-    border-color: rgba(246, 193, 119, 0.3);
-    color: var(--bs-warning);
+    background-color: var(--card);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 @keyframes slideInRight {
@@ -313,26 +329,26 @@ body {
 
 /* Bootstrap Overrides */
 .card {
-    background-color: var(--bs-card-bg);
-    border-color: var(--bs-border-color);
-    color: var(--bs-body-color);
+    background-color: var(--card);
+    border-color: var(--border);
+    color: var(--foreground);
 }
 
 .form-control {
-    background-color: var(--bs-card-bg);
-    border-color: var(--bs-border-color);
-    color: var(--bs-body-color);
+    background-color: var(--input);
+    border-color: var(--border);
+    color: var(--foreground);
 }
 
 .form-control:focus {
-    background-color: var(--bs-card-bg);
-    border-color: var(--bs-primary);
-    color: var(--bs-body-color);
-    box-shadow: 0 0 0 0.2rem rgba(196, 167, 231, 0.25);
+    background-color: var(--input);
+    border-color: var(--primary);
+    color: var(--foreground);
+    box-shadow: 0 0 0 0.2rem rgba(235, 111, 146, 0.25);
 }
 
 .form-control::placeholder {
-    color: #6e6a86;
+    color: var(--muted-foreground);
 }
 
 /* Mobile Responsive */
@@ -354,4 +370,90 @@ body {
     .search-input-group {
         min-width: 200px;
     }
+}
+
+/* Movie Details Modal Styles */
+.modal-content {
+    background-color: var(--card) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.modal-header {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Enhanced modal styles */
+.modal-xl {
+    max-width: 1200px;
+}
+
+@media (max-width: 1200px) {
+    .modal-xl {
+        max-width: 95%;
+        margin: 1rem auto;
+    }
+}
+
+/* Stats cards in modal */
+.card.bg-primary.bg-opacity-10 {
+    background-color: rgba(235, 111, 146, 0.1) !important;
+}
+
+.card.bg-secondary.bg-opacity-10 {
+    background-color: rgba(156, 207, 216, 0.1) !important;
+}
+
+.card.bg-success.bg-opacity-10 {
+    background-color: rgba(156, 207, 216, 0.1) !important;
+}
+
+.card.bg-warning.bg-opacity-10 {
+    background-color: rgba(246, 193, 119, 0.1) !important;
+}
+
+/* Badge enhancements */
+.badge.bg-primary.bg-opacity-20 {
+    background-color: rgba(235, 111, 146, 0.2) !important;
+}
+
+.badge.bg-secondary.bg-opacity-20 {
+    background-color: rgba(156, 207, 216, 0.2) !important;
+}
+
+/* Custom scrollbar for modal */
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
+    background: var(--card);
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+/* Movie stats cards in modal */
+.bg-dark {
+    background-color: var(--muted) !important;
+}
+
+/* Alert overrides */
+.alert-info {
+    background-color: var(--card);
+    border-color: var(--border);
+    color: var(--foreground);
+}
+
+.alert-danger {
+    background-color: var(--card);
+    border-color: var(--destructive);
+    color: var(--destructive);
 }

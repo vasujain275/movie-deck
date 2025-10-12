@@ -4,6 +4,7 @@
  */
 
 import { IMAGE_BASE_URL } from "../../../config.js";
+import { openMovieDetailsModal } from "./movieDetails.js";
 import {
   getWatchLaterMovies,
   removeFromWatchLater,
@@ -25,7 +26,7 @@ function createMovieCard(movie) {
   );
 
   card.innerHTML = `
-        <div class="card h-100 movie-card fade-in shadow-sm rounded-4 border-0">
+        <div class="card h-100 movie-card fade-in shadow-sm rounded-4 border-0" style="cursor: pointer;">
             <img src="${
               movie.poster_path
                 ? IMAGE_BASE_URL + movie.poster_path
@@ -67,9 +68,16 @@ function createMovieCard(movie) {
 
   // Add event listener for watch later button
   const watchLaterBtn = card.querySelector(".watch-later-btn");
-  watchLaterBtn.addEventListener("click", () =>
-    handleWatchLaterClick(movie, watchLaterBtn)
-  );
+  watchLaterBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent card click event
+    handleWatchLaterClick(movie, watchLaterBtn);
+  });
+
+  // Add event listener for card click to open movie details
+  const movieCard = card.querySelector(".movie-card");
+  movieCard.addEventListener("click", () => {
+    openMovieDetailsModal(movie.id);
+  });
 
   return card;
 }
