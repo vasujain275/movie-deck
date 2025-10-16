@@ -24,7 +24,6 @@ const API_CONFIG = {
 const apiRequest = async (endpoint, options = {}) => {
   try {
     const config = {
-      ...API_CONFIG,
       ...options,
       headers: {
         ...API_CONFIG.headers,
